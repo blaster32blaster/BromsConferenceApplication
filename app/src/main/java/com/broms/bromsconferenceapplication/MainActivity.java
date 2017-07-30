@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setImageResource(R.drawable.ic_format_list_bulleted_black_24dp);
+        fab.setImageResource(R.drawable.ic_list_black_24dp);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -116,13 +116,13 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_sessions) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_speakers) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_sponsors) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_search) {
 
         } else if (id == R.id.nav_share) {
 
@@ -143,70 +143,24 @@ public class MainActivity extends AppCompatActivity
         startActivity(intent);
     }
 
-    public void getApi(View view) throws IOException {
-//        final TextView responseView;
-//        responseView = (TextView) findViewById(R.id.responseView2);
-////        String theUrl = "https://api-conferences.onlinelearningconsortium.org:6984/olc/_design/schedule/_view/schedule?reduce=false&keys=[%223193%22]&include_docs=true";
-////        String theUrl = "https://api-conferences.onlinelearningconsortium.org:6984/olc_icons/_design/iconsByGID/_view/iconsByGID?reduce=false&keys=[%223193%22]&include_docs=true";
-//        Toast.makeText(this, " Fetching Data ... " , Toast.LENGTH_LONG).show();
-//
-//        Log.i((String) TAG, "Making Request ... ");
-//
-//        // Instantiate the cache
-//        Cache cache = new DiskBasedCache(getCacheDir(), 1024 * 1024); // 1MB cap
-//
-//// Set up the network to use HttpURLConnection as the HTTP client.
-//        Network network = new BasicNetwork(new HurlStack());
-//
-//// Instantiate the RequestQueue with the cache and network.
-//       RequestQueue mRequestQueue = new RequestQueue(cache, network);
-//
-//// Start the queue
-//        mRequestQueue.start();
-//
-//        String url ="https://api-conferences.onlinelearningconsortium.org:6984/olc/_design/schedule/_view/schedule?reduce=false&keys=[%223193%22]&include_docs=true";
-//
-//        // Formulate the request and handle the response.
-//        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-//                new Response.Listener<String>() {
-//                    @Override
-//                    public void onResponse(String response) {
-//                        Log.i((String) TAG, "Response 2 : "+ response);
-//                        // Do something with the response
-//
-//                            try {
-//                                JSONObject jObject = new JSONObject(response);
-//
-//
-//                            } catch (JSONException e) {
-//                                e.printStackTrace();
-//                            }
-//
-//
-//                        responseView.setText(response);
-//                    }
-//                },
-//                new Response.ErrorListener() {
-//                    @Override
-//                    public void onErrorResponse(VolleyError error) {
-//                        // Handle error
-//                        Log.i((String) TAG, "Error2 : "+ error);
-//
-//
-//                    }
-//
-//                });
-//
-//// Add the request to the RequestQueue.
-//        mRequestQueue.add(stringRequest);
-
-
-
-    }
-
 
     public void goToSessions(MenuItem item) {
         Intent intent = new Intent(this, sessionsActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToSpeakers(MenuItem item) {
+        Intent intent = new Intent(this, SpeakerActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToSponsors(MenuItem item) {
+        Intent intent = new Intent(this, SponsorActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToSearch(MenuItem item) {
+        Intent intent = new Intent(this, SearchActivity.class);
         startActivity(intent);
     }
 }
